@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>A Question for Faith</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      max-width: 450px;
+      width: 100%;
+      padding: 30px;
+      border-radius: 18px;
+      text-align: center;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+      animation: fadeIn 1s ease;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+      color: #333;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 25px;
+      line-height: 1.5;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      flex: 1;
+      padding: 14px;
+      border-radius: 12px;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .yes {
+      background: #ff5c8a;
+      color: white;
+    }
+
+    .yes:hover {
+      background: #ff3f75;
+      transform: scale(1.05);
+    }
+
+    .maybe {
+      background: #f1f1f1;
+      color: #333;
+    }
+
+    .maybe:hover {
+      background: #e0e0e0;
+    }
+
+    .message {
+      margin-top: 25px;
+      font-size: 1.05rem;
+      display: none;
+    }
+
+    .congrats {
+      margin-top: 25px;
+      padding: 20px;
+      border-radius: 14px;
+      background: #fff0f5;
+      display: none;
+      animation: fadeIn 1s ease;
+    }
+
+    .congrats h2 {
+      color: #ff3f75;
+      margin-bottom: 10px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Hi Faith Kendi</h1>
+
+    <p>
+      I have something honest I wanted to ask you.
+      I really enjoy talking to you and spending time with you,
+      and I value you as a person.
+    </p>
+
+    <h1>Would you like to be my girlfriend?</h1>
+
+    <div class="buttons">
+      <button class="yes" onclick="sayYes()">Yes</button>
+      <button class="maybe" onclick="sayMaybe()">Let’s talk</button>
+    </div>
+
+    <div class="message" id="response"></div>
+
+    <div class="congrats" id="congratsBox">
+      <h2>Congratulations</h2>
+      <p>
+        Thank you for saying yes, Faith.
+        This means a lot, and I’m really happy we’re starting this together.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function sayYes() {
+      document.getElementById("response").style.display = "none";
+      const congrats = document.getElementById("congratsBox");
+      congrats.style.display = "block";
+    }
+
+    function sayMaybe() {
+      const msg = document.getElementById("response");
+      msg.style.display = "block";
+      msg.textContent =
+        "That’s completely okay. I respect you, and we can talk whenever you’re ready.";
+      document.getElementById("congratsBox").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
